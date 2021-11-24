@@ -57,4 +57,20 @@ public class Libro {
     public void imprimeTítulo() {
         System.out.println(titulo);
     }
+    
+    /**
+     * Imprime los detalles del libro
+     */
+    public void impimirDetalles() {
+        System.out.println("Título: " + titulo + ", Autor: " + autor + " y número de páginas: " + numeroPaginas);
+    }
+    
+    /**
+     * Devuelve los detalles del libro
+     */
+    public String getDetalles() {
+        String devolver = "";
+        devolver = devolver + "Título: " + titulo + ", Autor: " + autor + " y número de páginas: " + numeroPaginas;
+        return devolver;
+    }
 }
