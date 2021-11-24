@@ -16,9 +16,22 @@ public class Libro {
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro)
-    {
+    public Libro(String autorLibro, String tituloLibro) {
         autor = autorLibro;
         titulo = tituloLibro;
+    }
+
+    /**
+     * Devuelve el nombre del autor
+     */
+    public String getNombreAutor() {
+        return autor;
+    }
+    
+    /**
+     * Devuelve el título del libro
+     */
+    public String getTítuloLibro() {
+        return titulo;
     }
 }
