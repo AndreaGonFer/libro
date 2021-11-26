@@ -13,6 +13,7 @@ public class Libro {
     private String autor;
     private String titulo;
     private int numeroPaginas;
+    private String numeroReferencia;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -21,6 +22,7 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = paginas;
+        numeroReferencia = "";
     }
 
     /**
@@ -38,7 +40,7 @@ public class Libro {
     }
     
     /**
-     * Devuelve el númerod de páginas del libro
+     * Devuelve el número de páginas del libro
      */
     public int getNumeroPaginas() {
         return numeroPaginas;
@@ -59,10 +61,35 @@ public class Libro {
     }
     
     /**
+     * Devuelve el número de referencia del libro
+     */
+    public String getNumeroReferencia() {
+        return numeroReferencia;
+    }
+    
+    /**
+     * Permite cambiar el número de referencia del libro
+     */
+    public void setNumeroReferencia(String referencia) {
+        if (referencia.length() < 3 ) {
+            System.out.println("El numero de referencia tiene menos de 3 caraceres.");
+            numeroReferencia = "";
+        }
+        else {
+            numeroReferencia = referencia;
+        }
+    }
+    
+    /**
      * Imprime los detalles del libro
      */
     public void impimirDetalles() {
-        System.out.println("Título: " + titulo + ", Autor: " + autor + " y número de páginas: " + numeroPaginas);
+        if (numeroReferencia == "") {
+            System.out.println("Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + " y número de referencia: ZZZ." );
+        }
+        else {
+            System.out.println("Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + " y número de referencia: " + numeroReferencia);
+        }
     }
     
     /**
@@ -70,7 +97,12 @@ public class Libro {
      */
     public String getDetalles() {
         String devolver = "";
-        devolver = devolver + "Título: " + titulo + ", Autor: " + autor + " y número de páginas: " + numeroPaginas;
+        if (numeroReferencia == "") {
+            devolver = devolver + "Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + " y número de referencia: ZZZ";
+        }
+        else {
+            devolver = devolver + "Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + " y número de referencia: " + numeroReferencia;
+        }
         return devolver;
     }
 }
