@@ -31,77 +31,80 @@ public class Libro {
     public String getNombreAutor() {
         return autor;
     }
-    
+
     /**
      * Devuelve el título del libro
      */
     public String getTítuloLibro() {
         return titulo;
     }
-    
+
     /**
      * Devuelve el número de páginas del libro
      */
     public int getNumeroPaginas() {
         return numeroPaginas;
     }
-    
+
     /**
      * Imprime el nombre del autor
      */
     public void imprimeAutor() {
         System.out.println(autor);
     }
-    
+
     /**
      * Imprime el título del libro
      */
     public void imprimeTítulo() {
         System.out.println(titulo);
     }
-    
+
     /**
      * Devuelve el número de referencia del libro
      */
     public String getNumeroReferencia() {
         return numeroReferencia;
     }
-    
+
     /**
      * Permite cambiar el número de referencia del libro
      */
     public void setNumeroReferencia(String referencia) {
-        if (referencia.length() < 3 ) {
+        if (referencia.length() < 3) {
             System.out.println("El numero de referencia tiene menos de 3 caraceres.");
-            numeroReferencia = "";
         }
         else {
             numeroReferencia = referencia;
         }
     }
-    
+
     /**
      * Imprime los detalles del libro
      */
     public void impimirDetalles() {
+        String devolver = "";
+        devolver = "Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + "";
         if (numeroReferencia == "") {
-            System.out.println("Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + " y número de referencia: ZZZ." );
+            numeroReferencia = "ZZZ";
         }
         else {
-            System.out.println("Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + " y número de referencia: " + numeroReferencia);
+            numeroReferencia = numeroReferencia;
         }
+        System.out.println(devolver = devolver + " y número de referencia: " + numeroReferencia);
     }
-    
+
     /**
      * Devuelve los detalles del libro
      */
     public String getDetalles() {
         String devolver = "";
+        devolver = "Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + ", ";
         if (numeroReferencia == "") {
-            devolver = devolver + "Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + " y número de referencia: ZZZ";
+            devolver = devolver + " y número de referencia: ZZZ";
         }
         else {
-            devolver = devolver + "Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + " y número de referencia: " + numeroReferencia;
+            devolver = devolver + " y número de referencia: " + numeroReferencia;
         }
         return devolver;
     }
