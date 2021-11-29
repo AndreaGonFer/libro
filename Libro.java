@@ -15,16 +15,18 @@ public class Libro {
     private int numeroPaginas;
     private String numeroReferencia;
     private int vecesPrestado;
+    private boolean esLibroDeTexto;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int paginas) {
+    public Libro(String autorLibro, String tituloLibro, int paginas, boolean texto) {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = paginas;
         numeroReferencia = "";
         vecesPrestado = 0;
+        esLibroDeTexto = texto;
     }
 
     /**
@@ -82,17 +84,24 @@ public class Libro {
     }
 
     /**
-     * Indica las veces que ha sido prestado el libro
+     * Modifica las veces que ha sido prestado el libro
      */
     public void prestar() {
         vecesPrestado = vecesPrestado + 1;
     }
     
     /**
-     * Indica las veces que ha sido prestado el libro
+     * Devuelve las veces que ha sido prestado el libro
      */
     public int getPrestar() {
         return vecesPrestado;
+    }
+    
+    /**
+     * Devuelve el número de páginas del libro
+     */
+    public boolean getEsLibroDeTexto() {
+        return esLibroDeTexto;
     }
     
     /**
@@ -102,12 +111,18 @@ public class Libro {
         String devolver = "";
         devolver = "Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + ", número de préstamos: " + vecesPrestado + "";
         if (numeroReferencia == "") {
-            numeroReferencia = "ZZZ";
+            devolver = devolver + " y número de referencia: ZZZ. ";
         }
         else {
-            numeroReferencia = numeroReferencia;
+            devolver = devolver + " y número de referencia: " + numeroReferencia + ". ";
         }
-        System.out.println(devolver = devolver + " y número de referencia: " + numeroReferencia);
+        if (esLibroDeTexto == true) {
+            devolver = devolver + "Es un libro de texto.";
+        }
+        else {
+            devolver = devolver + "No es un libro de texto.";
+        }
+        System.out.println(devolver);
     }
 
     /**
@@ -115,12 +130,18 @@ public class Libro {
      */
     public String getDetalles() {
         String devolver = "";
-        devolver = "Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + ", número de préstamos: " + vecesPrestado + ", ";
+        devolver = "Título: " + titulo + ", Autor: " + autor + ", número de páginas: " + numeroPaginas + ", número de préstamos: " + vecesPrestado + "";
         if (numeroReferencia == "") {
-            devolver = devolver + " y número de referencia: ZZZ";
+            devolver = devolver + " y número de referencia: ZZZ. ";
         }
         else {
-            devolver = devolver + " y número de referencia: " + numeroReferencia;
+            devolver = devolver + " y número de referencia: " + numeroReferencia + ". ";
+        }
+        if (esLibroDeTexto == true) {
+            devolver = devolver + "Es un libro de texto.";
+        }
+        else {
+            devolver = devolver + "No es un libro de texto.";
         }
         return devolver;
     }
